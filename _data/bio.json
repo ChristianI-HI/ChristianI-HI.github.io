@@ -1,12 +1,11 @@
 {
   "basics": {
     "name": "Christian Iha",
-    "label": "Student",
+    "label": "M.S. Student, Electrical & Computer Engineering",
     "picture": "https://github.com/ChristianI-HI.png",
     "email": "ihac@hawaii.edu",
-    "phone": "808-219-3518",
     "website": "https://christiani-hi.github.io",
-    "summary": "I am studying for a B.S. in Computer Engineering and M.S. in Electrical Engineering in the Department of Electrical Engineeringn at the University of Hawaii. I expect to graduate with my B.S. in Spring, 2025 and M.S. in Spring, 2026.",
+    "summary": "I'm a graduate student at the University of Hawai'i at Mānoa building and evaluating multi-agent LLM systems, with a background in full-stack web development, computer vision, and hands-on engineering. I currently teach Python programming to undergraduates as a graduate teaching assistant.",
     "location": { "address": "", "postalCode": "96744", "city": "Kaneohe", "countryCode": "USA", "region": "Hawaii" },
     "profiles": [
       { "network": "github", "username": "ChristianI-HI", "url": "http://github.com/ChristianI-HI" },
@@ -21,69 +20,70 @@
   ],
   "skills": [
     {
-      "name": "Languages and Frameworks",
-      "keywords": [ "C", "C++", "C#", "Java", "Javascript", "Kotlin", "Next.js", "ReactJs" ]
+      "name": "Languages",
+      "keywords": [ "Python", "JavaScript/TypeScript", "SQL" ]
     },
     {
-      "name": "Toolsets/OS",
-      "keywords": [ "Windows", "Git/GitHub", "PostgreSQL", "pgAdmin" ]
+      "name": "Applied AI & LLM Systems",
+      "keywords": [ "Multi-Agent LLM Orchestration", "Structured Outputs (JSON Schema)", "LLM-as-Judge Evaluation", "Computer Vision (OpenCV, Object Detection, Diffusion Inpainting)" ]
+    },
+    {
+      "name": "Web & Data",
+      "keywords": [ "React", "Next.js", "Flask", "SQLite", "PostgreSQL/Prisma", "Metric Design & Label-Quality Auditing", "ETL/Workflow Automation (AppSheet, Freshworks, HelloSign)" ]
+    },
+    {
+      "name": "Education",
+      "keywords": [ "Lab Instruction", "Technical Mentoring", "Code Review & Feedback", "AI-Assisted-Coding Pedagogy" ]
+    },
+    {
+      "name": "Also Familiar With",
+      "keywords": [ "C", "C++", "C#", "Java", "Kotlin", "Git/GitHub" ]
     }
   ],
   "education": [
     {
-      "institution": "University of Hawaii, Honolulu, HI",
-      "area": "Computer Engineering (expected Spring, 2025)",
-      "studyType": "B.S.",
-      "startDate": "2022-08-22",
+      "institution": "University of Hawai'i at Mānoa, Honolulu, HI",
+      "area": "Electrical and Computer Engineering",
+      "studyType": "M.S.",
+      "startDate": "2025-08-01",
       "endDate": "Present",
       "courses": [
       ]
     },
     {
-      "institution": "University of Hawaii, Honolulu, HI",
-      "area": "Electrical Engineering (expected Spring, 2026)",
-      "studyType": "M.S.",
-      "startDate": "2024-08-19",
-      "endDate": "Present",
+      "institution": "University of Hawai'i at Mānoa, Honolulu, HI",
+      "area": "Computer Engineering",
+      "studyType": "B.S.",
+      "startDate": "2022-08-01",
+      "endDate": "2025-05-01",
       "courses": [
       ]
     }
   ],
   "work": [
     {
-      "company": "University Health Partners",
+      "company": "University of Hawai'i College of Engineering",
+      "position": "ECE Graduate Teaching Assistant — Intro to Programming in Python",
+      "website": "",
+      "startDate": "2025-08-01",
+      "endDate": "2026-05-01",
+      "summary": "Guiding over 100 students across two semesters through Python programming labs, reinforcing data types, control flow, functions, classes, and object-oriented programming.",
+      "highlights": [
+        "Guided over 100 students across two semesters (40 in Fall 2025; 60 in Spring 2026) through Python programming labs, reinforcing data types, control flow, functions, classes, and object-oriented programming",
+        "Coached student teams through the course's capstone project — a visual/interactive Python application (2D game, GUI, or data visualization) — with emphasis on effectively directing AI coding assistants while still being able to explain, modify, and defend every line of code",
+        "Developed and delivered interactive coding demos to strengthen conceptual understanding and problem-solving skills; assessed each student's working code and explanations at biweekly capstone-project lab checkpoints as well as final presentations, requiring demonstrated understanding for full credit"
+      ]
+    },
+    {
+      "company": "University Health Partners of Hawai'i",
       "position": "Digital Health Data Engineer Intern",
       "website": "https://uhphawaii.org/",
-      "startDate": "2024-09-03",
-      "endDate": "present",
-      "summary": "Assist the UHP IT department with providing services to the UH School of Nursing and clincs across the state",
+      "startDate": "2024-08-01",
+      "endDate": "2025-01-01",
+      "summary": "Built and deployed a low-code data platform for UH Mānoa School of Nursing and UHP staff, working directly with non-technical clinical stakeholders.",
       "highlights": [
-        "Designed a python ETL script which proccesses helpdesk ticket information to organize help request information",
-        "Designed a web application which displays the status of client EPIC access requests to reduce mail traffic"
-      ]
-    },
-    {
-      "company": "University of Hawaii College of Engineering",
-      "position": "EE Grader",
-      "website": "",
-      "startDate": "2024-01-23",
-      "endDate": "2024-05-10",
-      "summary": "Assissted visiting UH Professor in grading Object Oriented Programming in C class",
-      "highlights": [
-        "Graded and provided feedback to students on a mix of practical and theoretical C/C++ asssignments",
-        "Modify and develop assignments based on class statistics and feedback for current and future use"
-      ]
-    },
-    {
-      "company": "University of Hawaii College of Engineering",
-      "position": "Computer Lab Monitor",
-      "website": "",
-      "startDate": "2024-01-22",
-      "endDate": "Present",
-      "summary": "",
-      "highlights": [
-        "Troubleshoot software and hardware issues of electronincs in computer lab",
-        "Be of service to students using provided computers na"
+        "Built and deployed a low-code AppSheet data platform for UH Mānoa School of Nursing and UHP staff, working directly with non-technical clinical stakeholders to define requirements and automate partitioning, sorting, and presentation of EPIC request status data",
+        "Wrote Python scripts to extend an ETL pipeline integrating Freshworks with HelloSign for end-to-end automated tracking of the EPIC request form lifecycle, and automated twice-daily data ingestion into Google Sheets dashboards, improving data reliability and reducing manual status checks"
       ]
     }
   ],
@@ -92,8 +92,8 @@
       "title": "International SeaPerch Challenge High School Stock Class 3rd Place",
       "date": "2022",
       "awarder": "Robonation SeaPerch",
-      "summary": "SeaPerch is an underwater ROV competition and community with over 250000 student particpants. The team that I led placed 3rd out of 57 in our class at international competition" 
-    },
+      "summary": "SeaPerch is an underwater ROV competition and community with over 250,000 student participants. The team that I led placed 3rd out of 57 in our class at international competition."
+    }
   ],
   "references": [
     {

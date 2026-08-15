@@ -1,33 +1,33 @@
-<div style="background-color: var(--tf-projects-bg-color)" class="bg-gradient py-3" id="projects">
-  <div class="container">
-    <div class="row mb-3">
-      <div class="col-md-6">
-        <h1 class="display-4 text-start">Projects</h1>
-      </div>
-    </div>
+<section class="pf-section pf-section--light" id="projects">
+  <div class="pf-container">
+    <p class="pf-eyebrow">Projects</p>
+    <h2 class="pf-section-title">Selected work</h2>
 
-    <div class="vstack gap-3">
-      {% assign project_pages = site.pages | where: "type", "project" | sort: "date" | reverse %}
-      {% for page in project_pages %}
-        {% unless page.draft %}
-          {% include projects/project-card.html page=page %}
-        {% endunless %}
-        {% if forloop.index == include.limit %}
-          {% break %}
-        {% endif %}
+    {% assign all_projects = site.pages | where: "type", "project" | where: "published", true | sort: "date" | reverse %}
+    {% assign featured_projects = all_projects | where: "featured", true %}
+    {% assign secondary_projects = all_projects | where_exp: "p", "p.featured != true" %}
+
+    {% if include.limit %}
+      {% assign secondary_projects = secondary_projects | slice: 0, include.limit %}
+    {% endif %}
+
+    <div class="pf-project-grid">
+      {% for page in featured_projects %}
+        {% include projects/project-card.html page=page %}
       {% endfor %}
     </div>
 
-    {% assign not_draft = 0 %}
-      {% for page in project_pages %}
-      {% unless page.draft %}
-        {% assign not_draft = not_draft | plus: 1 %}
-      {% endunless %}
-    {% endfor %}
+    {% if secondary_projects.size > 0 %}
+    <div class="pf-project-grid pf-project-grid--secondary">
+      {% for page in secondary_projects %}
+        {% include projects/project-card.html page=page %}
+      {% endfor %}
+    </div>
+    {% endif %}
 
-    {% if not_draft > include.limit %}
-      <p class="text-center pt-4"><a href="{{ site.baseurl}}/projects/">See all {{ not_draft }} projects</a></p>
+    {% if include.limit and all_projects.size > featured_projects.size and secondary_projects.size < all_projects.size %}
+    <p class="text-center pt-4" style="margin-top: 2rem;"><a class="pf-btn pf-btn--ghost" href="{{ site.baseurl}}/projects/">See all {{ all_projects.size }} projects</a></p>
     {% endif %}
 
   </div>
-</div>
+</section>

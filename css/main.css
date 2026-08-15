@@ -1,0 +1,672 @@
+/* ==========================================================================
+   Portfolio theme — custom design system (replaces techfolio-theme)
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Open+Sans:wght@400;500;600;700&family=Source+Code+Pro:wght@400;500&display=swap");
+
+:root {
+  --pf-bg-dark: #0f1115;
+  --pf-bg-dark-2: #14171d;
+  --pf-bg-light: #fafafb;
+  --pf-bg-light-2: #f1f2f5;
+  --pf-card-dark: #1a1d24;
+  --pf-card-light: #ffffff;
+  --pf-border-dark: #262a33;
+  --pf-border-light: #e4e6ea;
+
+  --pf-text-dark: #eef0f3;
+  --pf-text-dark-muted: #9aa0ab;
+  --pf-text-light: #16181d;
+  --pf-text-light-muted: #5b6270;
+
+  --pf-accent: #5b6ee8;
+  --pf-accent-2: #17b6a3;
+  --pf-accent-gradient: linear-gradient(120deg, #5b6ee8 0%, #17b6a3 100%);
+
+  --pf-font-body: "Open Sans", sans-serif;
+  --pf-font-display: "Space Grotesk", sans-serif;
+  --pf-font-mono: "Source Code Pro", monospace;
+
+  --pf-radius: 14px;
+  --pf-max-width: 1080px;
+
+  --bs-font-sans-serif: var(--pf-font-body);
+  --bs-link-color: var(--pf-accent);
+  --tf-icon-fill: currentColor;
+  --tf-icon-hover: var(--pf-accent);
+}
+
+body {
+  font-family: var(--pf-font-body);
+  color: var(--pf-text-light);
+  background-color: var(--pf-bg-light);
+}
+
+a {
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, .pf-display {
+  font-family: var(--pf-font-display);
+  letter-spacing: -0.01em;
+}
+
+code, pre, .pf-mono {
+  font-family: var(--pf-font-mono);
+}
+
+.pf-container {
+  max-width: var(--pf-max-width);
+  margin: 0 auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+/* ---- Section rhythm -------------------------------------------------- */
+
+.pf-section {
+  padding: 4.5rem 0;
+}
+
+.pf-section--light { background-color: var(--pf-bg-light); color: var(--pf-text-light); }
+.pf-section--light-2 { background-color: var(--pf-bg-light-2); color: var(--pf-text-light); }
+.pf-section--dark { background-color: var(--pf-bg-dark); color: var(--pf-text-dark); }
+
+.pf-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--pf-font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pf-accent);
+  margin-bottom: 0.75rem;
+}
+
+.pf-eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 1.5rem;
+  height: 2px;
+  background: var(--pf-accent-gradient);
+  border-radius: 2px;
+}
+
+.pf-section-title {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.pf-section--dark .pf-section-title { color: var(--pf-text-dark); }
+
+/* ---- Nav --------------------------------------------------------------- */
+
+.pf-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: rgba(15, 17, 21, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--pf-border-dark);
+}
+
+.pf-nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1.25rem;
+  max-width: var(--pf-max-width);
+  margin: 0 auto;
+}
+
+.pf-nav-brand {
+  font-family: var(--pf-font-display);
+  font-weight: 700;
+  color: var(--pf-text-dark);
+  font-size: 1.05rem;
+}
+
+.pf-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pf-nav-links a {
+  color: var(--pf-text-dark-muted);
+  font-size: 0.92rem;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.pf-nav-links a:hover {
+  color: var(--pf-text-dark);
+}
+
+.pf-nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--pf-text-dark);
+  font-size: 1.4rem;
+  line-height: 1;
+  padding: 0.25rem 0.4rem;
+}
+
+@media (max-width: 700px) {
+  .pf-nav-toggle { display: block; }
+  .pf-nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    background-color: var(--pf-bg-dark-2);
+    border-bottom: 1px solid var(--pf-border-dark);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease;
+  }
+  .pf-nav-links.pf-nav-links--open {
+    max-height: 20rem;
+  }
+  .pf-nav-links a {
+    display: block;
+    width: 100%;
+    padding: 0.85rem 1.25rem;
+    border-top: 1px solid var(--pf-border-dark);
+  }
+}
+
+/* ---- Hero ---------------------------------------------------------------- */
+
+.pf-hero {
+  background: radial-gradient(ellipse at top left, #1a1e2b 0%, var(--pf-bg-dark) 55%);
+  color: var(--pf-text-dark);
+  padding: 6rem 0 5rem;
+}
+
+.pf-hero-eyebrow {
+  font-family: var(--pf-font-mono);
+  color: var(--pf-accent-2);
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  margin-bottom: 1rem;
+}
+
+.pf-hero h1 {
+  font-size: clamp(2.25rem, 5vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  max-width: 40rem;
+}
+
+.pf-hero-accent {
+  background: var(--pf-accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.pf-hero p.pf-hero-lede {
+  font-size: 1.15rem;
+  color: var(--pf-text-dark-muted);
+  max-width: 38rem;
+  margin-top: 1.25rem;
+}
+
+.pf-hero-cta {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2.25rem;
+  flex-wrap: wrap;
+}
+
+/* ---- Buttons --------------------------------------------------------- */
+
+.pf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+  border: 1px solid transparent;
+}
+
+.pf-btn:hover {
+  transform: translateY(-1px);
+}
+
+.pf-btn--primary {
+  background: var(--pf-accent-gradient);
+  color: #fff;
+  box-shadow: 0 8px 24px -8px rgba(91, 110, 232, 0.55);
+}
+
+.pf-btn--primary:hover { color: #fff; box-shadow: 0 10px 28px -6px rgba(91, 110, 232, 0.65); }
+
+.pf-btn--ghost {
+  border-color: var(--pf-border-dark);
+  color: var(--pf-text-dark);
+}
+
+.pf-btn--ghost:hover { color: var(--pf-text-dark); border-color: var(--pf-accent-2); }
+
+.pf-section--light .pf-btn--ghost,
+.pf-section--light-2 .pf-btn--ghost {
+  border-color: var(--pf-border-light);
+  color: var(--pf-text-light);
+}
+
+/* ---- About ------------------------------------------------------------ */
+
+.pf-about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 3rem;
+  align-items: start;
+}
+
+@media (max-width: 800px) {
+  .pf-about-grid { grid-template-columns: 1fr; }
+}
+
+.pf-about-photo {
+  width: 100%;
+  max-width: 220px;
+  border-radius: var(--pf-radius);
+  border: 1px solid var(--pf-border-light);
+}
+
+.pf-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pf-tag {
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  background-color: rgba(91, 110, 232, 0.1);
+  color: var(--pf-accent);
+}
+
+.pf-section--dark .pf-tag {
+  background-color: rgba(23, 182, 163, 0.14);
+  color: var(--pf-accent-2);
+}
+
+/* ---- Experience / timeline -------------------------------------------- */
+
+.pf-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.pf-timeline-item {
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  gap: 1.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--pf-border-light);
+}
+
+.pf-timeline-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+@media (max-width: 700px) {
+  .pf-timeline-item { grid-template-columns: 1fr; gap: 0.4rem; }
+}
+
+.pf-timeline-date {
+  font-family: var(--pf-font-mono);
+  font-size: 0.85rem;
+  color: var(--pf-text-light-muted);
+}
+
+.pf-timeline-role {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin: 0 0 0.15rem;
+}
+
+.pf-timeline-org {
+  color: var(--pf-accent);
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin: 0 0 0.75rem;
+}
+
+.pf-timeline-item ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--pf-text-light-muted);
+}
+
+.pf-timeline-item li + li { margin-top: 0.4rem; }
+
+/* ---- Cards -------------------------------------------------------------- */
+
+.pf-card {
+  background-color: var(--pf-card-light);
+  border: 1px solid var(--pf-border-light);
+  border-radius: var(--pf-radius);
+  box-shadow: 0 1px 2px rgba(16, 18, 24, 0.04);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.pf-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px -12px rgba(16, 18, 24, 0.18);
+  border-color: var(--pf-border-light);
+}
+
+.pf-card-media {
+  aspect-ratio: 16 / 9;
+  background-color: var(--pf-bg-light-2);
+  overflow: hidden;
+}
+
+.pf-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pf-card-body {
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
+}
+
+.pf-card-title {
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin: 0;
+}
+
+.pf-card-date {
+  font-family: var(--pf-font-mono);
+  font-size: 0.78rem;
+  color: var(--pf-text-light-muted);
+}
+
+.pf-card-summary {
+  color: var(--pf-text-light-muted);
+  font-size: 0.95rem;
+  flex: 1;
+}
+
+.pf-card-labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.25rem 0 0;
+}
+
+.pf-pill {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background-color: var(--pf-bg-light-2);
+  color: var(--pf-text-light-muted);
+  border: 1px solid var(--pf-border-light);
+}
+
+.pf-card-link {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--pf-accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* Featured project grid: first row larger, rest smaller */
+.pf-project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.pf-project-grid--secondary {
+  margin-top: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* ---- Skills -------------------------------------------------------------- */
+
+.pf-skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.75rem;
+}
+
+.pf-skill-group h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.85rem;
+}
+
+.pf-skill-group .pf-tag-list { margin-top: 0; }
+
+/* ---- Contact -------------------------------------------------------------- */
+
+.pf-contact-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.pf-contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.4rem;
+  border-radius: var(--pf-radius);
+  border: 1px solid var(--pf-border-dark);
+  color: var(--pf-text-dark);
+  font-weight: 600;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.pf-contact-link:hover {
+  border-color: var(--pf-accent-2);
+  color: var(--pf-text-dark);
+  transform: translateY(-2px);
+}
+
+.pf-contact-link svg {
+  width: 1.3em;
+  height: 1.3em;
+  fill: currentColor;
+}
+
+/* ---- Footer -------------------------------------------------------------- */
+
+.pf-footer {
+  background-color: var(--pf-bg-dark);
+  color: var(--pf-text-dark-muted);
+  border-top: 1px solid var(--pf-border-dark);
+  padding: 2.25rem 0;
+  font-size: 0.88rem;
+}
+
+.pf-footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.pf-footer a {
+  color: var(--pf-text-dark-muted);
+}
+
+.pf-footer a:hover {
+  color: var(--pf-accent-2);
+}
+
+.pf-footer-links {
+  display: flex;
+  gap: 1.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---- Generic interior page header (projects/essays index, resume, project detail) --- */
+
+.pf-page-header {
+  background-color: var(--pf-bg-dark);
+  color: var(--pf-text-dark);
+  padding: 3.5rem 0 2.75rem;
+}
+
+.pf-page-header h1 {
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  margin: 0;
+}
+
+.pf-page-header .pf-date {
+  font-family: var(--pf-font-mono);
+  color: var(--pf-text-dark-muted);
+  font-size: 0.9rem;
+}
+
+.pf-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--pf-text-dark-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1.25rem;
+}
+
+.pf-back-link:hover { color: var(--pf-accent-2); }
+
+.pf-page-body {
+  padding: 3rem 0 4.5rem;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.pf-page-body img {
+  max-width: 100%;
+  height: auto;
+}
+
+.pf-page-body h2 {
+  margin-top: 2.5rem;
+  font-size: 1.5rem;
+}
+
+.pf-page-body pre {
+  background-color: var(--pf-bg-light-2);
+  padding: 1rem;
+  border-radius: 10px;
+  overflow-x: auto;
+  font-size: 0.85rem;
+}
+
+.pf-page-body code {
+  background-color: var(--pf-bg-light-2);
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+/* ---- Image placeholder block -------------------------------------------- */
+
+.pf-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+  border: 1.5px dashed var(--pf-border-light);
+  border-radius: var(--pf-radius);
+  background-color: var(--pf-bg-light-2);
+  color: var(--pf-text-light-muted);
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.pf-placeholder .pf-placeholder-label {
+  font-family: var(--pf-font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--pf-text-light-muted);
+  opacity: 0.8;
+}
+
+.pf-card-media.pf-card-media--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--pf-bg-light-2), #e8eaf6);
+}
+
+.pf-card-media--placeholder .pf-placeholder-icon {
+  font-family: var(--pf-font-mono);
+  font-size: 0.75rem;
+  color: var(--pf-text-light-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ---- Index list pages (projects/, essays/) -------------------------------- */
+
+.pf-list-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ---- Misc ------------------------------------------------------------------ */
+
+.pf-muted { color: var(--pf-text-light-muted); }
+.pf-lead { font-size: 1.1rem; color: var(--pf-text-light-muted); }
+
+.pf-essay-note {
+  font-size: 0.92rem;
+  color: var(--pf-text-light-muted);
+  margin-bottom: 2rem;
+  padding: 0.9rem 1.1rem;
+  border-left: 3px solid var(--pf-accent);
+  background-color: var(--pf-bg-light-2);
+  border-radius: 0 8px 8px 0;
+}

@@ -1,6 +1,11 @@
 ---
 title: Projects
-layout: home
+layout: page
 ---
 
-{% include projects/projects.html %}
+{% assign all_projects = site.pages | where: "type", "project" | where: "published", true | sort: "date" | reverse %}
+<div class="pf-list-grid">
+  {% for page in all_projects %}
+    {% include projects/project-card.html page=page %}
+  {% endfor %}
+</div>

@@ -1,0 +1,18 @@
+<section class="pf-section pf-section--light" id="skills">
+  <div class="pf-container">
+    <p class="pf-eyebrow">Skills</p>
+    <h2 class="pf-section-title">What I work with</h2>
+    <div class="pf-skills-grid">
+      {% for group in site.data.bio.skills %}
+      <div class="pf-skill-group">
+        <h3>{{ group.name }}</h3>
+        <ul class="pf-tag-list">
+          {% for keyword in group.keywords %}
+          <li class="pf-tag">{{ keyword }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

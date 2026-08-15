@@ -1,10 +1,18 @@
 ---
-layout: home
+layout: default
 ---
-
-<div class="container py-4">
-  <h1 class="display-4">{{ page.title }}</h1>
-  <span class="date">{{ page.date | date_to_string }}</span>
-  <hr>
-  {{ content }}
+{% include header.html %}
+<div class="pf-page-header">
+  <div class="pf-container">
+    <a class="pf-back-link" href="{{ site.baseurl }}/essays/">&larr; All Essays</a>
+    <h1>{{ page.title }}</h1>
+    <p class="pf-date">{{ page.date | date_to_string }}</p>
+  </div>
 </div>
+<div class="pf-container">
+  <div class="pf-page-body">
+    <p class="pf-essay-note">This was written as a weekly reflection for an undergraduate software engineering course — kept here as an archive, not as current portfolio work.</p>
+    {{ content }}
+  </div>
+</div>
+{% include footer.html %}

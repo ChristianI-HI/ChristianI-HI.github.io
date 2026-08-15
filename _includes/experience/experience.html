@@ -1,0 +1,26 @@
+<section class="pf-section pf-section--light-2" id="experience">
+  <div class="pf-container">
+    <p class="pf-eyebrow">Experience</p>
+    <h2 class="pf-section-title">Where I've worked</h2>
+    <div class="pf-timeline">
+      {% for entry in site.data.bio.work %}
+      <div class="pf-timeline-item">
+        <div class="pf-timeline-date">
+          {{ entry.startDate | date: "%b %Y" }} &ndash; {% if entry.endDate == "Present" or entry.endDate == "present" %}Present{% else %}{{ entry.endDate | date: "%b %Y" }}{% endif %}
+        </div>
+        <div>
+          <p class="pf-timeline-role">{{ entry.position }}</p>
+          <p class="pf-timeline-org">{{ entry.company }}</p>
+          {% if entry.highlights %}
+          <ul>
+            {% for highlight in entry.highlights %}
+            <li>{{ highlight }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

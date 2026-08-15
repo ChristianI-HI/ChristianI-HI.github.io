@@ -1,0 +1,23 @@
+<section class="pf-section pf-section--dark" id="contact">
+  <div class="pf-container">
+    <p class="pf-eyebrow">Contact</p>
+    <h2 class="pf-section-title">Let's talk</h2>
+    <p class="pf-hero-lede" style="margin-top: 0;">Reach out if you want to talk about my thesis work, a project, or a role — I'm happy to chat.</p>
+    <div class="pf-contact-links">
+      {% if site.data.bio.basics.email %}
+      {% capture url %}mailto:{{ site.data.bio.basics.email }}{% endcapture %}
+      <a class="pf-contact-link" href="{{ url }}">
+        <svg><use xlink:href="{{ '/img/bootstrap-icons.svg' | prepend: site.baseurl }}#envelope"/></svg>
+        {{ site.data.bio.basics.email }}
+      </a>
+      {% endif %}
+      {% for profile in site.data.bio.basics.profiles %}
+      {% capture name %}{{ profile.network | downcase }}{% endcapture %}
+      <a class="pf-contact-link" href="{{ profile.url }}" target="_blank" rel="noopener">
+        <svg><use xlink:href="{{ '/img/bootstrap-icons.svg' | prepend: site.baseurl }}#{{ name }}"/></svg>
+        {{ profile.network | capitalize }}
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>

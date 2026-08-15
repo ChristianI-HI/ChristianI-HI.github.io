@@ -1,12 +1,31 @@
-<header class="navbar navbar-expand navbar-light bg-light bg-gradient border-bottom">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="{{ '/' | prepend: site.baseurl }}">{{ site.data.bio.basics.name }}</a>
-    <div class="ms-auto">
-      <ul class="navbar-nav mb-2 mb-lg-0">
-        <a class="nav-link" href="{{ '/#projects' | prepend: site.baseurl }}">Projects</a>
-        <a class="nav-link" href="{{ '/#essays' | prepend: site.baseurl }}">Essays</a>
-        <a class="nav-link" href="{{ '/resume.html' | prepend: site.baseurl }}">Resume</a>
-      </ul>
-    </div>
+<header class="pf-nav">
+  <div class="pf-nav-inner">
+    <a class="pf-nav-brand" href="{{ '/' | prepend: site.baseurl }}">{{ site.data.bio.basics.name }}</a>
+    <button class="pf-nav-toggle" id="pf-nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    <ul class="pf-nav-links" id="pf-nav-links">
+      <li><a href="{{ '/#about' | prepend: site.baseurl }}">About</a></li>
+      <li><a href="{{ '/#experience' | prepend: site.baseurl }}">Experience</a></li>
+      <li><a href="{{ '/#projects' | prepend: site.baseurl }}">Projects</a></li>
+      <li><a href="{{ '/#skills' | prepend: site.baseurl }}">Skills</a></li>
+      <li><a href="{{ '/#contact' | prepend: site.baseurl }}">Contact</a></li>
+      <li><a href="{{ '/resume.html' | prepend: site.baseurl }}">Résumé</a></li>
+    </ul>
   </div>
 </header>
+<script>
+  (function () {
+    var toggle = document.getElementById('pf-nav-toggle');
+    var links = document.getElementById('pf-nav-links');
+    if (!toggle || !links) return;
+    toggle.addEventListener('click', function () {
+      var open = links.classList.toggle('pf-nav-links--open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+    links.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        links.classList.remove('pf-nav-links--open');
+        toggle.setAttribute('aria-expanded', false);
+      });
+    });
+  })();
+</script>
