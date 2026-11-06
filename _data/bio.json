@@ -5,7 +5,7 @@
     "picture": "https://github.com/ChristianI-HI.png",
     "email": "ihac@hawaii.edu",
     "website": "https://christiani-hi.github.io",
-    "summary": "I'm a graduate student at the University of Hawai'i at Mānoa building and evaluating multi-agent LLM systems, with a background in full-stack web development, computer vision, and hands-on engineering. I currently teach Python programming to undergraduates as a graduate teaching assistant.",
+    "summary": "I'm a graduate student at the University of Hawai'i at Mānoa building and evaluating multi-agent LLM systems, with a background in full-stack web development, computer vision, and hands-on engineering. As a graduate assistant, I help develop Alu, an AI tutoring platform that supports students and instructors in high-DFW gateway STEM courses, after a year teaching Python programming to undergraduates as a graduate teaching assistant.",
     "location": { "address": "", "postalCode": "96744", "city": "Kaneohe", "countryCode": "USA", "region": "Hawaii" },
     "profiles": [
       { "network": "github", "username": "ChristianI-HI", "url": "http://github.com/ChristianI-HI" },
@@ -25,11 +25,11 @@
     },
     {
       "name": "Applied AI & LLM Systems",
-      "keywords": [ "Multi-Agent LLM Orchestration", "Structured Outputs (JSON Schema)", "LLM-as-Judge Evaluation", "Computer Vision (OpenCV, Object Detection, Diffusion Inpainting)" ]
+      "keywords": [ "Multi-Agent LLM Orchestration", "Retrieval-Augmented Generation (RAG)", "Structured Outputs (JSON Schema, Pydantic)", "LLM-as-Judge Evaluation", "QLoRA Fine-Tuning (PyTorch, PEFT, vLLM)", "Computer Vision (OpenCV, Object Detection, Diffusion Inpainting)" ]
     },
     {
-      "name": "Web & Data",
-      "keywords": [ "React", "Next.js", "Flask", "SQLite", "PostgreSQL/Prisma", "Metric Design & Label-Quality Auditing", "ETL/Workflow Automation (AppSheet, Freshworks, HelloSign)" ]
+      "name": "Web, Data & Cloud",
+      "keywords": [ "React", "Next.js", "Flask", "SQLite", "PostgreSQL/Prisma", "Docker", "Google Cloud", "Metric Design & Label-Quality Auditing", "ETL/Workflow Automation (AppSheet, Freshworks, HelloSign)" ]
     },
     {
       "name": "Education",
@@ -61,6 +61,19 @@
     }
   ],
   "work": [
+    {
+      "company": "Educational AI & Student Success Initiative (Alu Tutoring Project), University of Hawai'i at Mānoa",
+      "position": "Graduate Assistant — AI Technology Integration & Learning Analytics",
+      "website": "",
+      "startDate": "2026-09-01",
+      "endDate": "Present",
+      "summary": "Contributing to Alu, an AI tutoring platform supporting students and instructors in high-DFW gateway STEM courses.",
+      "highlights": [
+        "Contributed to the development of Alu, an AI tutoring platform for gateway STEM courses with high drop, withdraw, and fail (DFW) rates, delivering guided, always-available support to raise retention and pass rates",
+        "Designed an instructor Prompt Builder that lets faculty shape how Alu teaches without writing prompts: course-fit presets (homework help, exam prep, intro or upper-level), answer styles that favor hints and guided explanation over handing out final answers, and options for building study habits and academic integrity",
+        "Designed and built student quality-of-life features to increase first-time use and retention, including a “Getting Started” guide, pasting screenshots and files from the clipboard, rendering fixes for math and citations, and Discord bot development"
+      ]
+    },
     {
       "company": "University of Hawai'i College of Engineering",
       "position": "ECE Graduate Teaching Assistant — Intro to Programming in Python",
